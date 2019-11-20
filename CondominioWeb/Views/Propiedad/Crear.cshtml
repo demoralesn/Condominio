@@ -1,0 +1,63 @@
+﻿@model CondominioWeb.Models.Propiedad
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Registro Propiedades</h1>
+                        </div>
+                        <form class="user">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Numero..." } })
+                                    @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Apellido..." } })
+                                    @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Prorrateo, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Email..." } })
+                                @Html.ValidationMessageFor(model => model.Prorrateo, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    @Html.EditorFor(model => model.Propietario, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Telefono..." } })
+                                    @Html.ValidationMessageFor(model => model.Propietario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Nacionalidad..." } })
+                                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <p>
+                                <a href="#" class="btn btn-success btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <span class="text">Registrar</span>
+                                </a>
+                                &nbsp;<a href="#" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">Volver</span>
+                                </a>
+                            </p>
+                            <hr>
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

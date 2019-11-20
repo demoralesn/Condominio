@@ -41,7 +41,8 @@ namespace CondominioWeb
                 "~/Content/js/demo/chart-pie-demo.js",
                 "~/Content/vendor/datatables/jquery.dataTables.min.js",
                 "~/Content/vendor/datatables/dataTables.bootstrap4.min.js",
-                "~/Content/js/demo/datatables-demo.js"
+                "~/Content/js/demo/datatables-demo.js",
+                "~/Content/js/scripts.js"
                 ));
         }
     }

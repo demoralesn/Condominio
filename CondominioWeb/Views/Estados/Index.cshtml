@@ -11,6 +11,8 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Generaci&oacute;n Estados de Cuenta</h6>
             </div>
+            @using (Html.BeginForm("Test", "Estados", FormMethod.Post))
+            {
             <div class="card-body">
                 <nav class="navbar navbar-expand navbar-light bg-light mb-4">
                     <a class="navbar-brand" href="#">Propiedad:</a>
@@ -34,8 +36,10 @@
                                 A&ntilde;o:
                             </a>
                             <div class="dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">2019</a>
+                                <a class="dropdown-item" href="#">2018</a>
+                                <a class="dropdown-item" href="#">2017</a>
+                                <a class="dropdown-item" href="#">2016</a>
                             </div>
                         </li>
                     </ul>
@@ -45,8 +49,18 @@
                                 Mes:
                             </a>
                             <div class="dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Enero</a>
+                                <a class="dropdown-item" href="#">Febrero</a>
+                                <a class="dropdown-item" href="#">Marzo</a>
+                                <a class="dropdown-item" href="#">Abril</a>
+                                <a class="dropdown-item" href="#">Mayo</a>
+                                <a class="dropdown-item" href="#">Junio</a>
+                                <a class="dropdown-item" href="#">Julio</a>
+                                <a class="dropdown-item" href="#">Agosto</a>
+                                <a class="dropdown-item" href="#">Septiembre</a>
+                                <a class="dropdown-item" href="#">Octubre</a>
+                                <a class="dropdown-item" href="#">Noviembre</a>
+                                <a class="dropdown-item" href="#">Diciembre</a>
                             </div>
                         </li>
                     </ul>
@@ -61,7 +75,7 @@
                     <a href="#" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-check"></i>
-                        </span>
+                        </span>.
                         <span class="text">Generar PDF</span>
                     </a>
                     &nbsp;<a href="#" class="btn btn-secondary btn-icon-split">
@@ -69,10 +83,12 @@
                             <i class="fas fa-arrow-right"></i>
                         </span>
                         <span class="text">Volver</span>
-                    </a>
+                <p><input type="submit" class="btn btn-primary btn-user btn-block" value="Ingresar" /></p>
+                </a>
                 </p>
             </div>
-        </div>
+            }
+            </div>
     </div>
 </body>
 </html>
