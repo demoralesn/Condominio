@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CondominioWeb.Models;
+using CondominioWeb.DAL;
+using System.Data;
 
 namespace CondominioWeb.Controllers
 {
@@ -12,18 +14,61 @@ namespace CondominioWeb.Controllers
         // GET: Copropietario
         public ActionResult Index()
         {
-            var Coprop = new List<Copropietario>
+            var copropietarioList = new List<Copropietario>();
+            using (var dt = BaseDatos.ExecuteDataTable("sp_c_copropietario", 0, ""))
             {
-                new Copropietario { Nombre="Daniel",Apellido="Morales",Fec_Nac="1987-10-14",Nacionalidad="Chileno",
-                    Email ="demoralesn@gmail.com",Telefono="62345017"},
-            };
-
-            return View(Coprop);
+                foreach (DataRow row in dt.Rows)
+                {
+                    var copropietario = new Copropietario()
+                    {
+                        Nombre = row["nombre"].ToString(),
+                        Apellido = row["apellido"].ToString(),
+                        Telefono = row["telefono"].ToString(),
+                        _Genero = (Genero)Enum.Parse(typeof(Genero), row["genero"].ToString(), true),
+                        Fec_Nac = row["fec_nac"].ToString(),
+                        _Nacionalidad = (Nacionalidad)Enum.Parse(typeof(Nacionalidad), row["nacionalidad"].ToString(), true),
+                        Email = row["email"].ToString(),
+                    };
+                    copropietarioList.Add(copropietario);
+                }
+            }
+            return View(copropietarioList);
         }
         
         public ActionResult Crear()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Crear(Copropietario cop)
+        {
+            var res = Guardar(cop);
+
+            if (res.Contains("Error")){
+                ViewBag.Tipo = 1;
+            }
+            else
+            {
+                ViewBag.Tipo = 0;
+            }
+
+            ViewBag.Message = res;
+
+            return View();
+        }
+
+        private String Guardar(Copropietario cop)
+        {
+            try
+            { 
+                BaseDatos.ExecuteSql("sp_i_registro_copropietario", cop.Nombre, cop.Apellido, cop.Telefono, cop._Genero, cop.Fec_Nac, cop._Nacionalidad, cop.Email);
+                return "Registro guardado";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
         }
 
         public ActionResult Editar()

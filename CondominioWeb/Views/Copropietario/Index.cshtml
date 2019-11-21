@@ -18,8 +18,9 @@
                                             <th>@Html.DisplayNameFor(model => model.Nombre)</th>
                                             <th>@Html.DisplayNameFor(model => model.Apellido)</th>
                                             <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                                            <th>@Html.DisplayNameFor(model => model._Genero)</th>
                                             <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
+                                            <th>@Html.DisplayNameFor(model => model._Nacionalidad)</th>
                                             <th>@Html.DisplayNameFor(model => model.Email)</th>
                                             <th>&nbsp;</th>
                                         </tr>
@@ -38,22 +39,23 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Fec_Nac)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Nacionalidad)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-info btn-circle btn-sm">
-                                                        <i class="fas fa-info-circle"></i>
-                                                    </a> |
-                                                    <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                                            <td>@Html.DisplayFor(modelItem => item._Genero)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Fec_Nac)</td>
+                                            <td>@Html.DisplayFor(modelItem => item._Nacionalidad)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                            <td>
+                                                <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>&nbsp;&nbsp;
+                                                <a href="#" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

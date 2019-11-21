@@ -24,6 +24,7 @@ namespace CondominioWeb
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
@@ -42,6 +43,8 @@ namespace CondominioWeb
                 "~/Content/vendor/datatables/jquery.dataTables.min.js",
                 "~/Content/vendor/datatables/dataTables.bootstrap4.min.js",
                 "~/Content/js/demo/datatables-demo.js",
+                "~/Content/moment/moment.min.js",
+                "~/Content/vendor/bootstrap/js/bootstrap-datetimepicker.min.js",
                 "~/Content/js/scripts.js"
                 ));
         }
