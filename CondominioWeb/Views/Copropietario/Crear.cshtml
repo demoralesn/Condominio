@@ -30,6 +30,16 @@
                         @using (Html.BeginForm("Crear", "Copropietario", FormMethod.Post))
                         {
                             <div class="form-group">
+                                <label for="Rut">Rut</label>
+                                @Html.TextBox("Rut", null, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Dv">Dv</label>
+                                @Html.TextBox("Dv", null, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
                                 <label for="Nombre">Nombre</label>
                                 @Html.TextBox("Nombre", null, new { @class = "form-control" })
                             </div>

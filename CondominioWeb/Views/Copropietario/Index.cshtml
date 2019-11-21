@@ -9,12 +9,28 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+
+                                @if (ViewBag.Tipo == 1)
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewBag.Message
+                                    </div>
+                                }
+                                @if (ViewBag.Tipo == 0)
+                                {
+                                    <div class="alert alert-success" role="alert">
+                                        @ViewBag.Message
+                                    </div>
+                                }
+
                                 <p>
                                     @Html.ActionLink("Crear Nuevo", "Crear", "Copropietario")
                                 </p>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>@Html.DisplayNameFor(model => model.Rut)</th>
+                                            <th>@Html.DisplayNameFor(model => model.Dv)</th>
                                             <th>@Html.DisplayNameFor(model => model.Nombre)</th>
                                             <th>@Html.DisplayNameFor(model => model.Apellido)</th>
                                             <th>@Html.DisplayNameFor(model => model.Telefono)</th>
@@ -26,20 +42,22 @@
                                         </tr>
                                     </thead>
                                     @*<tfoot>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Email)</th>
-                                            <th>&nbsp;</th>
-                                        </tr>
-                                    </tfoot>*@
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                    <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                    <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                    <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </tfoot>*@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
                                         <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.Rut)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Dv)</td>
                                             <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
                                             <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
                                             <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
@@ -51,7 +69,7 @@
                                                 <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
                                                     <i class="fas fa-info-circle"></i>
                                                 </a>&nbsp;&nbsp;
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                                <a class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="javascript:DeleteCop(@item.Id)">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>

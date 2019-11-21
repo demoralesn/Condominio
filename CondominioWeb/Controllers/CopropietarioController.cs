@@ -21,6 +21,8 @@ namespace CondominioWeb.Controllers
                 {
                     var copropietario = new Copropietario()
                     {
+                        Rut = row["rut"].ToString(),
+                        Dv = row["dv"].ToString(),
                         Nombre = row["nombre"].ToString(),
                         Apellido = row["apellido"].ToString(),
                         Telefono = row["telefono"].ToString(),
@@ -38,6 +40,25 @@ namespace CondominioWeb.Controllers
         public ActionResult Crear()
         {
             return View();
+        }
+
+        [HttpDelete]
+        public ActionResult Eliminar(String CopID)
+        {
+            var res = EliminarCop(CopID);
+
+            if (res.Contains("Error"))
+            {
+                ViewBag.Tipo = 1;
+            }
+            else
+            {
+                ViewBag.Tipo = 0;
+            }
+
+            ViewBag.Message = res;
+
+            return View("Index");
         }
 
         [HttpPost]
@@ -58,11 +79,24 @@ namespace CondominioWeb.Controllers
             return View();
         }
 
+        private String EliminarCop(String CopID)
+        {
+            try
+            {
+                BaseDatos.ExecuteSql("sp_d_registro_copropietario", CopID);
+                return "Registro eliminado";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+
         private String Guardar(Copropietario cop)
         {
             try
-            { 
-                BaseDatos.ExecuteSql("sp_i_registro_copropietario", cop.Nombre, cop.Apellido, cop.Telefono, cop._Genero, cop.Fec_Nac, cop._Nacionalidad, cop.Email);
+            {
+                BaseDatos.ExecuteSql("sp_i_registro_copropietario", cop.Rut, cop.Dv,cop.Nombre, cop.Apellido, cop.Telefono, cop._Genero, cop.Fec_Nac, cop._Nacionalidad, cop.Email);
                 return "Registro guardado";
             }
             catch (Exception ex)

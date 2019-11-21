@@ -8,6 +8,15 @@ namespace CondominioWeb.Models
 {
     public class Copropietario
     {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Campo Obligatorio")]
+        [StringLength(9, MinimumLength = 9, ErrorMessage = "El minimo es de 9 caracteres")]
+        public string Rut { get; set; }
+
+        [Required(ErrorMessage = "Campo Obligatorio")]
+        public string Dv { get; set; }
+
         [Required(ErrorMessage = "Campo Obligatorio")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "El minimo es de 5 caracteres")]
         public string Nombre { get; set; }
@@ -36,6 +45,8 @@ namespace CondominioWeb.Models
         [Required(ErrorMessage = "Campo Obligatorio")]
         [RegularExpression("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*", ErrorMessage = "E-mail invalido")]
         public string Email { get; set; }
+
+        public Boolean Estado { get; set; }
     }
     public enum Genero { Masculino, Femenino };
     public enum Nacionalidad { Chileno, Extranjero };

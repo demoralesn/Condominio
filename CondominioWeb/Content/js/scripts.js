@@ -13,3 +13,25 @@ $(function () {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+function DeleteCop(CopID) {
+    var con = confirm("Esta seguro que desea eliminar el registro?");
+    if (con == true) {
+        $.ajax({
+            url: "@Url.Action('Eliminar')",
+            type: 'Delete',
+            data: {
+                CopID: CopID,
+            },
+            dataType: "text/html",
+            async: true,
+            cache: false,
+            sucess: function (data) {
+                alert(data);
+            },
+            error: function (xhr) {
+                alert('error');
+            }
+        });
+    }
+}
