@@ -21,6 +21,7 @@ namespace CondominioWeb.Controllers
                 {
                     var copropietario = new Copropietario()
                     {
+                        Id = (int)row["id"],
                         Rut = row["rut"].ToString(),
                         Dv = row["dv"].ToString(),
                         Nombre = row["nombre"].ToString(),
@@ -42,7 +43,7 @@ namespace CondominioWeb.Controllers
             return View();
         }
 
-        [HttpDelete]
+        [HttpPost]
         public ActionResult Eliminar(String CopID)
         {
             var res = EliminarCop(CopID);
