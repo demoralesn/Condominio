@@ -35,6 +35,7 @@ namespace CondominioWeb.Controllers
                     copropietarioList.Add(copropietario);
                 }
             }
+
             return View(copropietarioList);
         }
         
@@ -43,8 +44,7 @@ namespace CondominioWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Eliminar(String CopID)
+        public ActionResult Eliminar(int CopID)
         {
             var res = EliminarCop(CopID);
 
@@ -59,7 +59,8 @@ namespace CondominioWeb.Controllers
 
             ViewBag.Message = res;
 
-            return View("Index");
+            //return View("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -80,7 +81,7 @@ namespace CondominioWeb.Controllers
             return View();
         }
 
-        private String EliminarCop(String CopID)
+        private String EliminarCop(int CopID)
         {
             try
             {
@@ -107,11 +108,6 @@ namespace CondominioWeb.Controllers
         }
 
         public ActionResult Editar()
-        {
-            return View();
-        }
-
-        public ActionResult Eliminar()
         {
             return View();
         }

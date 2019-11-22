@@ -47,6 +47,10 @@ namespace CondominioWeb
                 "~/Content/vendor/bootstrap/js/bootstrap-datetimepicker.min.js",
                 "~/Content/js/scripts.js"
                 ));
+
+            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+                "~/Scripts/jquery.unobtrusive-ajax.js"
+                ));
         }
     }
 }

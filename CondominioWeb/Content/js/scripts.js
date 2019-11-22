@@ -18,8 +18,8 @@ function DeleteCop(CopID) {
     var con = confirm("Esta seguro que desea eliminar el registro?");
     if (con == true) {
         $.ajax({
-            url: "@Url.Action('Eliminar','Copropietario')",
-            type: 'post',
+            url: "Copropietario/Eliminar",
+            type: 'GET',
             data: {
                 CopID: CopID,
             },

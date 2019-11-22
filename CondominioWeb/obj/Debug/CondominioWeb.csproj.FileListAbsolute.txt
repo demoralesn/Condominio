@@ -205,3 +205,4 @@ C:\Users\dmorales.sahid\source\repos\condominio\CondominioWeb\obj\Debug\Condomin
 C:\Users\dmorales.sahid\source\repos\condominio\CondominioWeb\obj\Debug\CondominioWeb.csproj.CopyComplete
 C:\Users\dmorales.sahid\source\repos\condominio\CondominioWeb\obj\Debug\CondominioWeb.dll
 C:\Users\dmorales.sahid\source\repos\condominio\CondominioWeb\obj\Debug\CondominioWeb.pdb
+C:\Users\dmorales.sahid\source\repos\condominio\CondominioWeb\obj\Debug\CondominioWeb.csprojAssemblyReference.cache
