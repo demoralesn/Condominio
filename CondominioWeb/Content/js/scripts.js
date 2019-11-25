@@ -37,3 +37,21 @@ var DeleteEmployee = function () {
         }
     })
 }
+
+var DeleteRealState = function () {
+
+    $("#loaderDiv").show();
+    var empId = $("#hiddenEmployeeId").val();
+
+    $.ajax({
+
+        type: "POST",
+        url: "/Propiedad/DeleteRealState",
+        data: { EmployeeId: empId },
+        success: function (result) {
+            $("#loaderDiv").hide();
+            $("#myModal").modal("hide");
+            $("#row_" + empId).remove();
+        }
+    })
+}

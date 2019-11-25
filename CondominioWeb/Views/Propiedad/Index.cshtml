@@ -1,53 +1,68 @@
-﻿@model IEnumerable<CondominioWeb.Models.Propiedad>
-
+﻿
 <div class="container-fluid">
     <!-- Page Heading -->
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Listado Copropietarios</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Listado Propiedades</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
+
+                @if (ViewBag.Tipo == 1)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+                @if (ViewBag.Tipo == 0)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+
                 <p>
                     @Html.ActionLink("Crear Nuevo", "Crear", "Propiedad")
                 </p>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.Numero)</th>
-                            <th>@Html.DisplayNameFor(model => model.Propietario)</th>
-                            <th>@Html.DisplayNameFor(model => model.Prorrateo)</th>
-                            <th>@Html.DisplayNameFor(model => model.Tipo)</th>
-                            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                            <th>N&uacute;mero</th>
+                            <th>Tipo</th>
+                            <th>Prorrateo</th>
+                            <th>Propietario</th>
+                            <th>Estado</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
                     @*<tfoot>
-                        <tr>
-                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-                            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
-                            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
-                            <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
-                            <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
-                            <th>@Html.DisplayNameFor(model => model.Email)</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </tfoot>*@
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Numero)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Propietario)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Prorrateo)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                                <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                                <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
+                                <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </tfoot>*@
+                    <tbody>
+                        @foreach (var item in ViewBag.EmployeeList)
+                        {
+                            <tr id="row_@item.Id">
+                                <td>@item.Numero</td>
+                                <td>@item._Tipo</td>
+                                <td>@item.Prorrateo</td>
+                                <td>@item.Propietario</td>
+                                <td>@item._Estado_Prop</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-circle btn-sm">
+
+
+                                    <a href="/propiedad/editar/@item.Id" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Actualizar">
                                         <i class="fas fa-info-circle"></i>
-                                    </a> |
-                                    <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="ConfirmDelete(@item.Id)">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -55,6 +70,36 @@
                         }
                     </tbody>
                 </table>
+
+
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h4>Esta seguro que desea eliminar este registro? </h4>
+
+                                <div style="text-align:center;display:none" id="loaderDiv">
+                                    <img src="~/Content/img/Ring-Preloader.gif" width="150" />
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn btn-default" data-dismiss="modal">Cancelar</a>
+                                <a href="#" class="btn btn-success" onclick="DeleteRealState()">Confirmar</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                @*hidden field for storing current employeeId*@
+                <input type="hidden" id="hiddenEmployeeId" />
+
+
+
             </div>
         </div>
     </div>

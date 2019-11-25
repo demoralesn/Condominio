@@ -83,7 +83,7 @@ namespace CondominioWeb.Controllers
         private List<Copropietario> CargarGrilla(int tipo, int id)
         {
             var copropietarioList = new List<Copropietario>();
-            using (var dt = BaseDatos.ExecuteDataTable("sp_c_copropietario", tipo, id))
+            using (var dt = BaseDatos.ExecuteDataTable("sp_c_propiedad", tipo, id))
             {
                 foreach (DataRow row in dt.Rows)
                 {

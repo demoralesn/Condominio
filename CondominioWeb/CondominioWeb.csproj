@@ -2026,6 +2026,7 @@
     <Content Include="Views\Copropietario\Edicion.cshtml" />
     <Content Include="Views\Copropietario\Detalles.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Propiedad\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
