@@ -18,6 +18,12 @@ namespace CondominioWeb
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Editar",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Copropietario", action = "Editar", id = UrlParameter.Optional }
+            );
         }
     }
 }

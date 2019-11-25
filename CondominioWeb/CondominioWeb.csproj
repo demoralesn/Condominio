@@ -160,6 +160,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PropiedadController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DAL\BaseDatos.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,6 +176,7 @@
     <Content Include="App_Data\sp_c_copropietario.sql" />
     <Content Include="App_Data\sp_d_registro_copropietario.sql" />
     <Content Include="App_Data\sp_i_registro_copropietario.sql" />
+    <Content Include="App_Data\sp_u_registro_copropietario.sql" />
     <Content Include="App_Data\tb_copropietario.sql" />
     <Content Include="Connected Services\ServiceReference1\CondominioWeb.ServiceReference1.Propietario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -193,6 +195,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
+    <Content Include="Content\img\Ring-Preloader.gif" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -2020,6 +2023,9 @@
     <Content Include="Views\Propiedad\Crear.cshtml" />
     <Content Include="Views\Estados\Pdf.cshtml" />
     <Content Include="Views\Cobranza\Detalle.cshtml" />
+    <Content Include="Views\Copropietario\Edicion.cshtml" />
+    <Content Include="Views\Copropietario\Detalles.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />

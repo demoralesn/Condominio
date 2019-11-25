@@ -1,5 +1,4 @@
-﻿@model IEnumerable<CondominioWeb.Models.Copropietario>
-
+﻿
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <!-- DataTales Example -->
@@ -29,15 +28,15 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>@Html.DisplayNameFor(model => model.Rut)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Dv)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
-                                            <th>@Html.DisplayNameFor(model => model._Genero)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
-                                            <th>@Html.DisplayNameFor(model => model._Nacionalidad)</th>
-                                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                            <th>Rut</th>
+                                            <th>Dv</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Tel&eacute;fono</th>
+                                            <th>Genero</th>
+                                            <th>Fec. Nac</th>
+                                            <th>Nacionalidad</th>
+                                            <th>Email</th>
                                             <th>&nbsp;</th>
                                         </tr>
                                     </thead>
@@ -53,30 +52,63 @@
                 </tr>
             </tfoot>*@
                                     <tbody>
-                                        @foreach (var item in Model)
+                                        @foreach (var item in ViewBag.EmployeeList)
                                         {
-                                        <tr>
-                                            <td>@Html.DisplayFor(modelItem => item.Rut)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Dv)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
-                                            <td>@Html.DisplayFor(modelItem => item._Genero)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Fec_Nac)</td>
-                                            <td>@Html.DisplayFor(modelItem => item._Nacionalidad)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
-                                                    <i class="fas fa-info-circle"></i>
-                                                </a>&nbsp;&nbsp;
-                                                <a class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar" href="javascript:DeleteCop(@item.Id)">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                            <tr id="row_@item.Id">
+                                                <td>@item.Rut</td>
+                                                <td>@item.Dv</td>
+                                                <td>@item.Nombre</td>
+                                                <td>@item.Apellido</td>
+                                                <td>@item.Telefono</td>
+                                                <td>@item._Genero</td>
+                                                <td>@item.Fec_Nac</td>
+                                                <td>@item._Nacionalidad</td>
+                                                <td>@item.Email</td>
+                                                <td>
+
+
+                                                    <a href="/copropietario/editar/@item.Id" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Actualizar">
+                                                        <i class="fas fa-warning"></i>
+                                                    </a>
+                                                    |
+                                                    <a href="#" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="ConfirmDelete(@item.Id)">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
+
+
+                                <div class="modal fade" id="myModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h4>Esta seguro que desea eliminar este registro? </h4>
+
+                                                <div style="text-align:center;display:none" id="loaderDiv">
+                                                    <img src="~/Content/img/Ring-Preloader.gif" width="150" />
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" class="btn btn-default" data-dismiss="modal">Cancelar</a>
+                                                <a href="#" class="btn btn-success" onclick="DeleteEmployee()">Confirmar</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                @*hidden field for storing current employeeId*@
+                                <input type="hidden" id="hiddenEmployeeId" />
+
+
+
                             </div>
                         </div>
                     </div>

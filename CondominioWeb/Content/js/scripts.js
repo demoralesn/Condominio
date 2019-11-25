@@ -14,24 +14,26 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
-function DeleteCop(CopID) {
-    var con = confirm("Esta seguro que desea eliminar el registro?");
-    if (con == true) {
-        $.ajax({
-            url: "Copropietario/Eliminar",
-            type: 'GET',
-            data: {
-                CopID: CopID,
-            },
-            dataType: "text/html",
-            async: true,
-            cache: false,
-            sucess: function (data) {
-                alert(data);
-            },
-            error: function (xhr) {
-                alert('error');
-            }
-        });
-    }
+var ConfirmDelete = function (EmployeeId) {
+
+    $("#hiddenEmployeeId").val(EmployeeId);
+    $("#myModal").modal('show');
+}
+
+var DeleteEmployee = function () {
+
+    $("#loaderDiv").show();
+    var empId = $("#hiddenEmployeeId").val();
+
+    $.ajax({
+
+        type: "POST",
+        url: "/Copropietario/DeleteEmployee",
+        data: { EmployeeId: empId },
+        success: function (result) {
+            $("#loaderDiv").hide();
+            $("#myModal").modal("hide");
+            $("#row_" + empId).remove();
+        }
+    })
 }
