@@ -21,16 +21,6 @@ namespace CondominioWeb.Controllers
             return View();
         }
 
-        public ActionResult Detalles()
-        {
-            return View();
-        }
-        
-        public ActionResult Edicion()
-        {
-            return View();
-        }
-
         public ActionResult Crear()
         {
             return View();
@@ -83,7 +73,7 @@ namespace CondominioWeb.Controllers
         private List<Copropietario> CargarGrilla(int tipo, int id)
         {
             var copropietarioList = new List<Copropietario>();
-            using (var dt = BaseDatos.ExecuteDataTable("sp_c_propiedad", tipo, id))
+            using (var dt = BaseDatos.ExecuteDataTable("sp_c_copropietario", tipo, id))
             {
                 foreach (DataRow row in dt.Rows)
                 {
