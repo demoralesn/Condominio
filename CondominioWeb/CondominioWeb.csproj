@@ -174,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\sp_c_copropietario.sql" />
+    <Content Include="App_Data\sp_c_list_propiedad.sql" />
     <Content Include="App_Data\sp_c_propiedad.sql" />
     <Content Include="App_Data\sp_d_registro_copropietario.sql" />
     <Content Include="App_Data\sp_d_registro_propiedad.sql" />
@@ -182,6 +183,7 @@
     <Content Include="App_Data\sp_u_registro_copropietario.sql" />
     <Content Include="App_Data\sp_u_registro_propiedad.sql" />
     <Content Include="App_Data\tb_copropietario.sql" />
+    <Content Include="App_Data\tb_formato_dcto.sql" />
     <Content Include="App_Data\tb_propiedad.sql" />
     <Content Include="Connected Services\ServiceReference1\CondominioWeb.ServiceReference1.Propietario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -200,6 +202,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
+    <Content Include="Content\img\firma.jpg" />
     <Content Include="Content\img\Ring-Preloader.gif" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
@@ -1999,6 +2002,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Cobranza\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2026,16 +2030,15 @@
     <Content Include="Views\Cobranza\Index.cshtml" />
     <Content Include="Views\Propiedad\Index.cshtml" />
     <Content Include="Views\Propiedad\Crear.cshtml" />
-    <Content Include="Views\Estados\Pdf.cshtml" />
     <Content Include="Views\Cobranza\Detalle.cshtml" />
     <Content Include="Views\Copropietario\Edicion.cshtml" />
     <Content Include="Views\Copropietario\Detalles.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Propiedad\Editar.cshtml" />
+    <Content Include="Views\Exportar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
-    <Folder Include="Views\Exportar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

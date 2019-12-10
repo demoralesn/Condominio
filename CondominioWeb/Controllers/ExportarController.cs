@@ -7,17 +7,18 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CondominioWeb.DAL;
+using System.Data;
 
 namespace CondominioWeb.Controllers
 {
     public class ExportarController : Controller
     {
         // GET: Exportar
-
-        [HttpPost]
-        [ValidateInput(false)]
-        public FileResult Index(string GridHtml)
+        public FileResult Index(int id)
         {
+            var GridHtml = CargarDcto(id);
+
             using (MemoryStream stream = new System.IO.MemoryStream())
             {
                 StringReader sr = new StringReader(GridHtml);
@@ -26,8 +27,14 @@ namespace CondominioWeb.Controllers
                 pdfDoc.Open();
                 XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                 pdfDoc.Close();
-                return File(stream.ToArray(), "application/pdf", "Grid.pdf");
+                return File(stream.ToArray(), "application/pdf", "Estado_Cuenta.pdf");
             }
+        }
+        private String CargarDcto(int tipo)
+        {
+            var FormatoDcto = BaseDatos.ExecuteScalar("select formato from formato_dcto where id_formato=" + tipo + "");
+
+            return FormatoDcto.ToString();
         }
     }
 }

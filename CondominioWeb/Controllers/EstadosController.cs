@@ -10,6 +10,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using iTextSharp.text.html.simpleparser;
+using CondominioWeb.DAL;
+using System.Data;
 
 namespace CondominioWeb.Controllers
 {
@@ -17,6 +19,30 @@ namespace CondominioWeb.Controllers
     {
         public ActionResult Index()
         {
+            IEnumerable<SelectListItem> Years = Enumerable.Range(2008, DateTime.UtcNow.Year - 2007).Select(x => new SelectListItem
+            {
+                Value = x.ToString(),
+                Text = x.ToString()
+            });
+
+            IEnumerable<SelectListItem> Months = Enumerable.Range(1, 12).Select(x => new SelectListItem
+            {
+                Value = x.ToString(),
+                Text = DateTimeFormatInfo.CurrentInfo.GetMonthName(x)
+            });
+
+            var pro = CargarGrilla();
+
+            IEnumerable<SelectListItem> Prop = pro.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Numero
+            });
+
+            ViewBag.Years = Years;
+            ViewBag.Months = Months;
+            ViewBag.Prop = Prop;
+
             return View();
         }
         // GET: Estados
@@ -34,6 +60,24 @@ namespace CondominioWeb.Controllers
         public ActionResult Test(FormCollection collection)
         {
             return View();
+        }
+
+        private List<ListPropiedad> CargarGrilla()
+        {
+            var propList = new List<ListPropiedad>();
+            using (var dt = BaseDatos.ExecuteDataTable("sp_c_list_propiedad"))
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    var prop = new ListPropiedad()
+                    {
+                        Id = (int)row["id"],
+                        Numero = row["numero"].ToString(),
+                    };
+                    propList.Add(prop);
+                }
+            }
+            return propList;
         }
     }
 }

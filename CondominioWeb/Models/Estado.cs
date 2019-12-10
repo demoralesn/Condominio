@@ -11,4 +11,5 @@ namespace CondominioWeb.Models
         public string mes { get; set; }
         public int anio { get; set; }
     }
+
 }

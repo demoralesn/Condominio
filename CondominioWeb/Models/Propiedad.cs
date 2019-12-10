@@ -16,6 +16,11 @@ namespace CondominioWeb.Models
         public Boolean Estado { get; set; }
     }
 
+    public class ListPropiedad {
+        public int Id { get; set; }
+        public string Numero { get; set; }
+    }
+
     public enum Tipo { Casa, Departamento, Estacionamiento, Bodega };
 
     public enum EstadoPro { Habitada, Abandonada, Arrendada, Propietario };
