@@ -153,6 +153,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CalculoController.cs" />
     <Compile Include="Controllers\CobranzaController.cs" />
     <Compile Include="Controllers\CopropietarioController.cs" />
     <Compile Include="Controllers\EstadosController.cs" />
@@ -2002,7 +2003,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Cobranza\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2036,6 +2036,7 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Propiedad\Editar.cshtml" />
     <Content Include="Views\Exportar\Index.cshtml" />
+    <Content Include="Views\Calculo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
