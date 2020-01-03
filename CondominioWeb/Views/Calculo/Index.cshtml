@@ -14,21 +14,58 @@
                 <h6 class="m-0 font-weight-bold text-primary">Calculo Gastos Mensuales</h6>
             </div>
             <div class="card-body">
-                <div class="row justify-center">
-                    <div class="col-12">
+
+
+
+
+
+                <div class="card mb-4 py-3 border-left-primary">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Gastos Administrativos</h6>
+                    </div>
+                    <div class="card-body">
                         <div class="form-inline">
-                            @Html.DropDownList("Anio",
-     new SelectList(ViewBag.Tipos, "Value", "Text"),
-    "Seleccionar...",
-    new { @class = "form-control" })
-                            <button class="btn btn-outline-info" id="enter" type="button">Add</button>
+                            <button type="button" class="btn btn-primary">
+                                Honorarios
+                            </button>
+                            <input type="text" class="form-control ml-2 col-3" placeholder="Descripcion">
+                            <select id="inputState" class="form-control ml-2 col-2">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control ml-2 col-2" placeholder="Docto.">
+                        </div>
+                        </div>
+                </div>
+
+                <div class="card mb-4 py-3 border-left-warning">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Gastos Mantenimiento</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-inline">
+                            <label for="exampleInputEmail1" class="mb-2 mr-sm-2">Baño Sala Com&uacute;n</label>
+                            <input type="email" class="form-control mb-2 mr-sm-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <label for="exampleInputEmail1" class="mb-2 mr-sm-2">Correspondencia</label>
+                            <input type="email" class="form-control mb-2 mr-sm-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-inline">
+                            <label for="exampleInputEmail1" class="col-sm-3 col-form-label">Mantenciones</label>
+                            <input type="email" class="form-control mb-2 mr-sm-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                     </div>
-                    <div class="col-12">
-                        <ul class="list-group">
-                        </ul>
-                    </div>
                 </div>
+
+
+
+
+
             </div>
         </div>
     </div>
