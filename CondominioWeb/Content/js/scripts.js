@@ -57,27 +57,34 @@ var DeleteRealState = function () {
 }
 
 var button = document.getElementById("enter");
-var input = document.getElementById("userinput");
-var ul = document.querySelector(".list-group");
 
 button.addEventListener("click", function () {
+
+    var input = document.getElementById("Anio");
+    var ul = document.querySelector(".list-group");
+
     var li = document.createElement("li");
     var inp = document.createElement("input")
     var div = document.createElement("div")
     var btn = document.createElement("a")
     var btni = document.createElement("i")
 
+    btn.href = '#';
+    btn.onclick = function () {
+        alert('ok');
+    };
+
     li.className = 'list-group-item';
-    inp.className = 'form-control';
-    div.className = 'col-lg-2';
-    btn.className = 'btn btn-danger btn-circle btn-sm';
+    inp.className = 'form-control col-xs-4';
+    div.className = 'col-lg-4';
+    btn.className = 'btn btn-outline-danger btn-xs';
     btni.className = 'fas fa-trash';
 
     btn.setAttribute('href', "#");
 
     li.style.fontWeight = "bold";
 
-    li.textContent = input.value;
+    li.textContent = $('#Anio :selected').text();
 
     btn.innerHTML += btni.outerHTML;
 
@@ -85,4 +92,5 @@ button.addEventListener("click", function () {
 
     li.innerHTML += div.outerHTML;
     ul.appendChild(li);
+
 })
