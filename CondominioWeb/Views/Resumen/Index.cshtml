@@ -1,0 +1,68 @@
+﻿
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Resumen Gastos Comunes</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            @foreach (var item in ViewBag.ResumenList)
+                            {
+                                <th align="center">@item.Anio - @item.Mes</th>
+                            }
+                        </tr>
+                    </thead>
+                    @*<tfoot>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                                <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+                                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                                <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
+                                <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </tfoot>*@
+                    <tbody>
+
+                        <tr>
+                            <th>Ing.Recaudaci&oacute;n</th>
+                            <td colspan="2" rowspan="6" align="center">
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ing.Multas</th>
+                        </tr>
+                        <tr>
+                            <th>Eg.Normales</th>
+                        </tr>
+                        <tr>
+                            <th>Eg.Otros</th>
+                        </tr>
+                        <tr>
+                            <th>Ajustes</th>
+                        </tr>
+                        <tr>
+                            <th>Balance</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>

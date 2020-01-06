@@ -15,12 +15,17 @@
             {
             <div class="card-body">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Propiedad</span>
-                    </div>
-                    <input type="text" id="Propiedad" class="form-control" placeholder="Ingrese propiedad..." aria-label="Username" aria-describedby="basic-addon1">
-                </div>
+                <nav class="navbar navbar-expand navbar-light bg-light mb-4">
+                    <a class="navbar-brand" href="#">Propiedad:</a>
+                    <ul class="navbar-nav ml-auto">
+                        <div class="form-group">
+                            @Html.DropDownList("Propiedad",
+     new SelectList(ViewBag.Prop, "Value", "Text"),
+    "Seleccionar...",
+    new { @class = "form-control" })
+                        </div>
+                    </ul>
+                </nav>
 
                 <p>&nbsp;</p>
 

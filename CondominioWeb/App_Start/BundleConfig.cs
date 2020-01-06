@@ -29,7 +29,9 @@ namespace CondominioWeb
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/Content/vendor/fontawesome-free/css/all.min.css",
-                "~/Content/css/sb-admin-2.min.css"
+                "~/Content/css/sb-admin-2.min.css",
+                "~/Content/css/estilos.css",
+                "~/Content/css/calendario.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(

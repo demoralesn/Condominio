@@ -42,7 +42,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/home/index/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Panel de Control</span>
+                    <span>Muro</span>
                 </a>
             </li>
 
@@ -56,9 +56,24 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Recaudaci&oacute;n</span>
+                </a>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        @Html.ActionLink("Resumen Gastos Comunes", "Index", "Resumen", null, new { @class = "collapse-item" })
+                        <!-- <a class="collapse-item" href="buttons.html">Generar Estado de Cuenta</a> -->
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Estados de Cuenta</span>
+                    <span>Gastos Comunes</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -72,15 +87,31 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Cobranzas</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
                         @Html.ActionLink("Generar Carta Cobranza", "Index", "Cobranza", null, new { @class = "collapse-item" })
                         <!-- <a class="collapse-item" href="utilities-border.html">Borders</a> -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Espacios Comunes</span>
+                </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        @Html.ActionLink("Reservar Sala Multiuso", "Index", "Reserva", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Calendario Reservas", "Index", "Calendario", null, new { @class = "collapse-item" })
+                        <!-- <a class="collapse-item" href="buttons.html">Generar Estado de Cuenta</a> -->
+                        <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
                     </div>
                 </div>
             </li>
@@ -95,11 +126,11 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Mantenedores</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         @Html.ActionLink("Copropietarios", "Index", "Copropietario", null, new { @class = "collapse-item" })
                         @Html.ActionLink("Propiedades", "Index", "Propiedad", null, new { @class = "collapse-item" })
