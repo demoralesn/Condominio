@@ -1,6 +1,4 @@
-﻿@model List<int>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -25,11 +23,11 @@
                     </div>
                     <div class="card-body">
                         <div class="form-inline">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary col-2">
                                 Honorarios
                             </button>
-                            <input type="text" class="form-control ml-2 col-3" placeholder="Descripcion">
-                            <select id="inputState" class="form-control ml-2 col-2">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
                                 <option selected>Cantidad...</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -38,31 +36,134 @@
                                 <option>5</option>
                                 <option>6</option>
                             </select>
-                            <input type="text" class="form-control ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control ml-2 col-2" placeholder="Docto.">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
                         </div>
-                        </div>
+                    </div>
                 </div>
 
                 <div class="card mb-4 py-3 border-left-warning">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Gastos Mantenimiento</h6>
+                        <h6 class="m-0 font-weight-bold text-warning">Gastos Mantenimiento</h6>
                     </div>
                     <div class="card-body">
                         <div class="form-inline">
-                            <label for="exampleInputEmail1" class="mb-2 mr-sm-2">Baño Sala Com&uacute;n</label>
-                            <input type="email" class="form-control mb-2 mr-sm-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <label for="exampleInputEmail1" class="mb-2 mr-sm-2">Correspondencia</label>
-                            <input type="email" class="form-control mb-2 mr-sm-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <button type="button" class="btn btn-warning col-4">
+                                Mantenci&oacute;n Jardines
+                            </button>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
                         </div>
-                        <div class="form-inline">
-                            <label for="exampleInputEmail1" class="col-sm-3 col-form-label">Mantenciones</label>
-                            <input type="email" class="form-control mb-2 mr-sm-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+                        <div class="form-inline my-2">
+                            <button type="button" class="btn btn-warning col-4">
+                                Mantenimiento / Reparaci&oacute;n
+                            </button>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
                         </div>
+
+                        <div class="form-inline my-2">
+                            <button type="button" class="btn btn-warning col-4">
+                                Insumos
+                            </button>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                        </div>
+
                     </div>
                 </div>
 
+                <div class="card mb-4 py-3 border-left-dark">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-dark">Gastos Uso / Consumo</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-inline my-2">
+                            <button type="button" class="btn btn-dark col-2">
+                                Agua
+                            </button>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                        </div>
 
+                        <div class="form-inline my-2">
+                            <button type="button" class="btn btn-dark col-2">
+                                Luz
+                            </button>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                        </div>
+
+                        <div class="form-inline my-2">
+                            <button type="button" class="btn btn-dark col-2">
+                                Internet
+                            </button>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                <option selected>Cantidad...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                        </div>
+                    </div>
+                </div>
 
 
 
