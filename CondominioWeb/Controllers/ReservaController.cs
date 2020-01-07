@@ -12,7 +12,7 @@ namespace CondominioWeb.Controllers
     public class ReservaController : Controller
     {
         // GET: Reserva
-        public ActionResult Index()
+        public ActionResult Crear()
         {
             var pro = CargarGrilla();
 
@@ -61,13 +61,23 @@ namespace CondominioWeb.Controllers
 
             ViewBag.Message = res;
 
+            var pro = CargarGrilla();
+
+            IEnumerable<SelectListItem> Prop = pro.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Numero
+            });
+
+            ViewBag.Prop = Prop;
+
             return View();
         }
         private String Guardar(Reserva cop)
         {
             try
             {
-                BaseDatos.ExecuteSql("sp_i_registro_copropietario", cop.Propiedad, cop.Fecha);
+                BaseDatos.ExecuteSql("sp_i_registro_reserva", cop.Propiedad, cop.dtDateFrom);
                 return "Registro guardado";
             }
             catch (Exception ex)
