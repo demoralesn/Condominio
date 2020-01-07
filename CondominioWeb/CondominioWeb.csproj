@@ -175,6 +175,7 @@
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Propiedad.cs" />
+    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Resumen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
