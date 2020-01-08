@@ -35,8 +35,8 @@ namespace CondominioWeb
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                "~/Content/vendor/jquery/jquery.min.js"
-                ,"~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"
+                //"~/Content/vendor/jquery/jquery.min.js"
+                "~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"
                 ,"~/Content/vendor/jquery-easing/jquery.easing.min.js"
                 ,"~/Content/js/sb-admin-2.min.js"
                 ,"~/Content/vendor/chart.js/Chart.min.js"
@@ -47,7 +47,8 @@ namespace CondominioWeb
                 ,"~/Content/js/demo/datatables-demo.js"
                 //,"~/Content/moment/moment.min.js"
                 //,"~/Scripts/bootstrap-datetimepicker.js"
-                ,"~/Scripts/polyfiller.js"
+                , "~/Scripts/jquery-3.3.1.js"
+                , "~/Scripts/polyfiller.js"
                 ,"~/Content/js/scripts.js"
                 ));
 

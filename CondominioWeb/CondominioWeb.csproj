@@ -187,11 +187,13 @@
     <Content Include="App_Data\sp_d_registro_propiedad.sql" />
     <Content Include="App_Data\sp_i_registro_copropietario.sql" />
     <Content Include="App_Data\sp_i_registro_propiedad.sql" />
+    <Content Include="App_Data\sp_i_registro_reserva.sql" />
     <Content Include="App_Data\sp_u_registro_copropietario.sql" />
     <Content Include="App_Data\sp_u_registro_propiedad.sql" />
     <Content Include="App_Data\tb_copropietario.sql" />
     <Content Include="App_Data\tb_formato_dcto.sql" />
     <Content Include="App_Data\tb_propiedad.sql" />
+    <Content Include="App_Data\tb_reserva.sql" />
     <Content Include="Connected Services\ServiceReference1\CondominioWeb.ServiceReference1.Propietario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -2080,6 +2082,7 @@
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />

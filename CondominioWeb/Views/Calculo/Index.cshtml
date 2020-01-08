@@ -13,162 +13,280 @@
             </div>
             <div class="card-body">
 
+                <nav class="navbar navbar-expand navbar-light bg-light mb-4">
+                    <select id="inputState" class="form-control col-2">
+                        <option selected>Periodo</option>
+                        <option>2019-08</option>
+                        <option>2019-09</option>
+                        <option>2019-10</option>
+                        <option>2019-11</option>
+                        <option>2019-12</option>
+                        <option>2020-01</option>
+                    </select>
+                    &nbsp;&nbsp;
+                    <button id="btn_SaveState" name="btn_SaveState" type="button" class="btn btn-success">Guardar Estado Mensual</button>
+                </nav>
 
-
-
-
-                <div class="card mb-4 py-3 border-left-primary">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Gastos Administrativos</h6>
+                    <div class="col-md-12">
+                        &nbsp;
                     </div>
-                    <div class="card-body">
-                        <div class="form-inline">
-                            <button type="button" class="btn btn-primary col-2">
-                                Honorarios
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+
+                    <div class="card mb-4 py-3 border-left-primary">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Gastos Administrativos</h6>
                         </div>
-                    </div>
-                </div>
+                        <div id="div_hon" class="card-body">
 
-                <div class="card mb-4 py-3 border-left-warning">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-warning">Gastos Mantenimiento</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-inline">
-                            <button type="button" class="btn btn-warning col-4">
-                                Mantenci&oacute;n Jardines
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                            <div class="form-inline">
+                                <button type="button" class="btn btn-primary col-2">
+                                    Honorarios
+                                </button>
+                                <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                    <option selected>Cant...</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                                <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                <div class="col-md-12">
+                                    &nbsp;
+                                </div>
+                            </div>
+
                         </div>
-
-                        <div class="form-inline my-2">
-                            <button type="button" class="btn btn-warning col-4">
-                                Mantenimiento / Reparaci&oacute;n
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
-                        </div>
-
-                        <div class="form-inline my-2">
-                            <button type="button" class="btn btn-warning col-4">
-                                Insumos
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="card mb-4 py-3 border-left-dark">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-dark">Gastos Uso / Consumo</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-inline my-2">
-                            <button type="button" class="btn btn-dark col-2">
-                                Agua
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
-                        </div>
-
-                        <div class="form-inline my-2">
-                            <button type="button" class="btn btn-dark col-2">
-                                Luz
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
-                        </div>
-
-                        <div class="form-inline my-2">
-                            <button type="button" class="btn btn-dark col-2">
-                                Internet
-                            </button>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
-                            <select id="inputState" class="form-control form-control-sm ml-2 col-1">
-                                <option selected>Cantidad...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
-                            <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                        <div class="col-md-12 text-center">
+                            <button id="btnAdd_Hon" name="btnAdd_Hon" type="button" class="btn btn-success">Agregar</button>
                         </div>
                     </div>
-                </div>
 
+                    <div class="card mb-4 py-3 border-left-warning">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-warning">Gastos Mantenimiento</h6>
+                        </div>
+                        <div class="card-body">
 
+                            <div id="div_mantjar">
+
+                                <div class="form-inline">
+                                    <button type="button" class="btn btn-warning col-2">
+                                        Mantenci&oacute;n Jardines
+                                    </button>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                    <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                        <option selected>Cant...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_MantJard" name="btnAdd_Hon" type="button" class="btn btn-success">Agregar</button>
+                            </div>
+
+                            <div class="col-md-12">
+                                &nbsp;
+                            </div>
+
+                            <div id="div_mantrep">
+
+                                <div class="form-inline">
+                                    <button type="button" class="btn btn-warning col-2">
+                                        Mantenimiento / Reparaci&oacute;n
+                                    </button>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                    <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                        <option selected>Cant...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_MantRep" name="btnAdd_Hon" type="button" class="btn btn-success">Agregar</button>
+                            </div>
+
+                            <div class="col-md-12">
+                                &nbsp;
+                            </div>
+
+                            <div id="div_mantins">
+
+                                <div class="form-inline">
+                                    <button type="button" class="btn btn-warning col-2">
+                                        Insumos
+                                    </button>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                    <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                        <option selected>Cant...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_MantIns" name="btnAdd_MantIns" type="button" class="btn btn-success">Agregar</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 py-3 border-left-dark">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-dark">Gastos Uso / Consumo</h6>
+                        </div>
+                        <div class="card-body">
+
+                            <div id="div_uscins">
+
+                                <div class="form-inline">
+                                    <button type="button" class="btn btn-dark col-2">
+                                        Agua
+                                    </button>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                    <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                        <option selected>Cant...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_UscIns" name="btnAdd_MantIns" type="button" class="btn btn-success">Agregar</button>
+                            </div>
+
+                            <div class="col-md-12">
+                                &nbsp;
+                            </div>
+
+                            <div id="div_uscluz">
+
+                                <div class="form-inline">
+                                    <button type="button" class="btn btn-dark col-2">
+                                        Luz
+                                    </button>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                    <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                        <option selected>Cant...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_UscLuz" name="btnAdd_UscLuz" type="button" class="btn btn-success">Agregar</button>
+                            </div>
+
+                            <div class="col-md-12">
+                                &nbsp;
+                            </div>
+
+                            <div id="div_uscint">
+
+                                <div class="form-inline">
+                                    <button type="button" class="btn btn-dark col-2">
+                                        Internet
+                                    </button>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Descripcion">
+                                    <select id="inputState" class="form-control form-control-sm ml-2 col-1">
+                                        <option selected>Cant...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Monto">
+                                    <input type="text" class="form-control form-control-sm ml-2 col-2" placeholder="Docto.">
+                                    <div class="col-md-12">
+                                        &nbsp;
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_UscInt" name="btnAdd_UscInt" type="button" class="btn btn-success">Agregar</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div style="text-align:center;">
+                                        <h4>Guardando Estado</h4>
+                                        <img src="~/Content/img/Ring-Preloader.gif" width="150" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
-        </div>
+            </div>
     </div>
 </body>
 </html>
