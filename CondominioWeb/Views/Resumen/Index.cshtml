@@ -9,58 +9,79 @@
         <div class="card-body">
             <div class="table-responsive">
 
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            @foreach (var item in ViewBag.ResumenList)
-                            {
-                                <th align="center">@item.Anio - @item.Mes</th>
-                            }
+                        <tr class="table-primary text-right">
+                            <td>&nbsp;</td>
+                            <th scope="col">2019-12</th>
+                            <th scope="col">2019-11</th>
+                            <th scope="col">2019-10</th>
+                            <th scope="col">2019-09</th>
+                            <th scope="col">2019-08</th>
+                            <th scope="col">2019-07</th>
                         </tr>
                     </thead>
-                    @*<tfoot>
-                            <tr>
-                                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-                                <th>@Html.DisplayNameFor(model => model.Apellido)</th>
-                                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
-                                <th>@Html.DisplayNameFor(model => model.Fec_Nac)</th>
-                                <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
-                                <th>@Html.DisplayNameFor(model => model.Email)</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </tfoot>*@
+
                     <tbody>
-
                         <tr>
-                            <th>Ing.Recaudaci&oacute;n</th>
-                            <td colspan="2" rowspan="6" align="center">
-                                <table>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                            </td>
+                            <th scope="row" class="text-left">(+) Recaudaci&oacute;n</th>
+                            <td class="text-right">1.374.846</td>
+                            <td class="text-right">1.295.780</td>
+                            <td class="text-right">1.407.140</td>
+                            <td class="text-right">1.231.090</td>
+                            <td class="text-right">1.305.000</td>
+                            <td class="text-right">1.387.500</td>
                         </tr>
                         <tr>
-                            <th>Ing.Multas</th>
+                            <th scope="row" class="text-left">(+) Multas</th>
+                            <td class="text-right">183.000</td>
+                            <td class="text-right">73.000</td>
+                            <td class="text-right">15.000</td>
+                            <td class="text-right">36.000</td>
+                            <td class="text-right">122.000</td>
+                            <td class="text-right">47.000</td>
                         </tr>
                         <tr>
-                            <th>Eg.Normales</th>
+                            <th scope="row" class="text-left">(-) Normales</th>
+                            <td class="text-right">978.000</td>
+                            <td class="text-right">1.036.500</td>
+                            <td class="text-right">996.000</td>
+                            <td class="text-right">1.073.650</td>
+                            <td class="text-right">1.150.300</td>
+                            <td class="text-right">1.036.000</td>
                         </tr>
                         <tr>
-                            <th>Eg.Otros</th>
+                            <th scope="row" class="text-left">(-) Otros</th>
+                            <td class="text-right">77.000</td>
+                            <td class="text-right">135.000</td>
+                            <td class="text-right">0</td>
+                            <td class="text-right">79.990</td>
+                            <td class="text-right">20.000</td>
+                            <td class="text-right">60.000</td>
                         </tr>
                         <tr>
-                            <th>Ajustes</th>
+                            <th scope="row" class="text-left">(+/-) Ajustes</th>
+                            <td class="text-right">0</td>
+                            <td class="text-right">-7.830</td>
+                            <td class="text-right">0</td>
+                            <td class="text-right">5.500</td>
+                            <td class="text-right">0</td>
+                            <td class="text-right">-28.000</td>
                         </tr>
-                        <tr>
-                            <th>Balance</th>
-                        </tr>
-
                     </tbody>
-                </table>
 
+                    <tfoot>
+                        <tr class="table-primary">
+                            <th scope="row" class="text-left">Balance Mes</th>
+                            <td class="text-right">502.846</td>
+                            <td class="text-right">189.450</td>
+                            <td class="text-right">426.140</td>
+                            <td class="text-right">198.940</td>
+                            <td class="text-right">257.000</td>
+                            <td class="text-right">310.500</td>
+                        </tr>
+                    </tfoot>
+                </table>
 
             </div>
         </div>

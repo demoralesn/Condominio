@@ -14,9 +14,9 @@ namespace CondominioWeb.Controllers
         // GET: Resumen
         public ActionResult Index()
         {
-            var cop = CargarGrilla();
+            //var cop = CargarGrilla();
 
-            ViewBag.ResumenList = cop;
+            //ViewBag.ResumenList = cop;
 
             return View();
         }
