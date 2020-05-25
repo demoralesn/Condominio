@@ -1,0 +1,15 @@
+﻿.aTable thead {
+    float: left;
+}
+
+    .aTable thead th {
+        display: block;
+    }
+
+.aTable tbody {
+    float: right;
+}
+
+    .aTable tbody td{
+        display: block;
+    }

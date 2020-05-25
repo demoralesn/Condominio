@@ -32,7 +32,7 @@ namespace CondominioWeb.Controllers
         }
         private String CargarDcto(int tipo)
         {
-            var FormatoDcto = BaseDatos.ExecuteScalar("select formato from formato_dcto where id_formato=" + tipo + "");
+            var FormatoDcto = BaseDatos.ExecuteScalar("select format from document_format where document_format_id=" + tipo + "");
 
             return FormatoDcto.ToString();
         }

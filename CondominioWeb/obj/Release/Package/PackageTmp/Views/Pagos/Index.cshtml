@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="col-lg-10">
+        <div class="card position-relative">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Registrar pago</h6>
+            </div>
+            <div class="card-body">
+
+                <div class="card mb-4 py-3 border-left-primary">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Agregar Pagos</h6>
+                    </div>
+                    <div id="div_hon" class="card-body">
+
+                        @using (Html.BeginForm("Crear", "Pagos", FormMethod.Post))
+                        {
+
+                            <div class="form-inline">
+
+                                <input name="amount" type="text" class="form-control col-xl-3 col-md-6 mb-4" placeholder="Monto">
+
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    @Html.DropDownList("expense_concept_id", new SelectList(ViewBag.Expense_Concept, "expense_concept_id", "expense_concept_desc"), new { @class = "form-control col-xs-2" })
+                                </div>
+
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    @Html.DropDownList("expense_entity_id", new SelectList(ViewBag.Expense_Entity, "expense_entity_id", "expense_entity_name"), new { @class = "form-control col-xs-2" })
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button id="btnAdd_Hon" name="btnAdd_Hon" type="submit" class="btn btn-success">Agregar</button>
+                            </div>
+
+                        }
+
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -75,6 +75,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
@@ -148,11 +151,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\CalculoController.cs" />
     <Compile Include="Controllers\CalendarioController.cs" />
     <Compile Include="Controllers\CobranzaController.cs" />
@@ -160,7 +158,12 @@
     <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Controllers\ExportarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MonthStateController.cs" />
+    <Compile Include="Controllers\OwnerController.cs" />
+    <Compile Include="Controllers\PagosController.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\PropiedadController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\ResumenController.cs" />
@@ -173,37 +176,23 @@
     <Compile Include="Models\Cobranza.cs" />
     <Compile Include="Models\Copropietario.cs" />
     <Compile Include="Models\Estado.cs" />
+    <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\Expense_Concept.cs" />
+    <Compile Include="Models\Expense_Entity.cs" />
+    <Compile Include="Models\Income.cs" />
+    <Compile Include="Models\Income_Concept.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\MonthState.cs" />
+    <Compile Include="Models\MonthStateDetail.cs" />
+    <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\Period.cs" />
+    <Compile Include="Models\Property.cs" />
     <Compile Include="Models\Propiedad.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Resumen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\sp_c_copropietario.sql" />
-    <Content Include="App_Data\sp_c_list_propiedad.sql" />
-    <Content Include="App_Data\sp_c_propiedad.sql" />
-    <Content Include="App_Data\sp_d_registro_copropietario.sql" />
-    <Content Include="App_Data\sp_d_registro_propiedad.sql" />
-    <Content Include="App_Data\sp_i_registro_copropietario.sql" />
-    <Content Include="App_Data\sp_i_registro_propiedad.sql" />
-    <Content Include="App_Data\sp_i_registro_reserva.sql" />
-    <Content Include="App_Data\sp_u_registro_copropietario.sql" />
-    <Content Include="App_Data\sp_u_registro_propiedad.sql" />
-    <Content Include="App_Data\tb_copropietario.sql" />
-    <Content Include="App_Data\tb_formato_dcto.sql" />
-    <Content Include="App_Data\tb_propiedad.sql" />
-    <Content Include="App_Data\tb_reserva.sql" />
-    <Content Include="Connected Services\ServiceReference1\CondominioWeb.ServiceReference1.Propietario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\ServiceReference1\Service.disco" />
-    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -215,7 +204,9 @@
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\email_icon.png" />
     <Content Include="Content\img\firma.jpg" />
+    <Content Include="Content\img\pdf_icon.png" />
     <Content Include="Content\img\Ring-Preloader.gif" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
@@ -1827,16 +1818,6 @@
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Connected Services\ServiceReference1\Service.wsdl" />
-    <None Include="Connected Services\ServiceReference1\Service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\Service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js.map" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.js.map" />
@@ -2081,6 +2062,7 @@
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -2136,6 +2118,13 @@
     <Content Include="Views\Resumen\Index.cshtml" />
     <Content Include="Views\Reserva\Crear.cshtml" />
     <Content Include="Views\Calendario\Index.cshtml" />
+    <Content Include="Views\Owner\Index.cshtml" />
+    <Content Include="Views\Pagos\Index.cshtml" />
+    <Content Include="Views\Pagos\Crear.cshtml" />
+    <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\MonthState\Index.cshtml" />
+    <Content Include="Views\Income\Index.cshtml" />
+    <Content Include="Views\Income\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
@@ -2155,9 +2144,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\js\scripts.js" />

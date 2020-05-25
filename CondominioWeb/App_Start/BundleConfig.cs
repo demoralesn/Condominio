@@ -8,6 +8,9 @@ namespace CondominioWeb
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //Soluciona el problema de visualización de iconos de bootstrap al publicar en iis.
+            System.Web.Optimization.BundleTable.EnableOptimizations = false;
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -28,9 +31,10 @@ namespace CondominioWeb
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/Content/vendor/fontawesome-free/css/all.min.css"
-                ,"~/Content/css/sb-admin-2.min.css"
-                ,"~/Content/css/estilos.css"
-                ,"~/Content/css/calendario.css"
+                , "~/Content/css/sb-admin-2.min.css"
+                , "~/Content/css/estilos.css"
+                , "~/Content/css/calendario.css"
+                , "~/Content/css/jquery.dataTables.min.css"
                 //,"~/Content/bootstrap-datetimepicker.css"
                 ));
 

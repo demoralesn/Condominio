@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CondominioWeb.ServiceReference1;
+using CondominioWeb.Models;
+using System.Net.Http;
 
 namespace CondominioWeb.Controllers
 {
@@ -12,6 +13,37 @@ namespace CondominioWeb.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Dashboard";
+
+            IEnumerable<Period> periods = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8080/api/");
+
+                var responseTask = client.GetAsync("period");
+
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<Period>>();
+
+                    readTask.Wait();
+
+                    periods = readTask.Result;
+                }
+                else
+                {
+                    periods = Enumerable.Empty<Period>();
+
+                    ModelState.AddModelError(string.Empty, "Server error.");
+                }
+            }
+
+            ViewBag.Periods = periods;
+
             return View();
         }
 
@@ -25,19 +57,6 @@ namespace CondominioWeb.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Service()
-        {
-            ServiceClient sc = new ServiceClient();
-
-            Propietario pt = new Propietario();
-
-            pt = sc.BuscarPropietarioByID(1);
-
-            ViewBag.Message = pt.Nombres;
 
             return View();
         }

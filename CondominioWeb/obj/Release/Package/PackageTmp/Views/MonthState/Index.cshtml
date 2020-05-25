@@ -1,0 +1,91 @@
+﻿<div class="col-lg-10">
+    <div class="card position-relative">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Generar Estados Mensuales</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                @Html.DropDownList("MonthPeriod", new SelectList(ViewBag.Periods, "Period_Id", "Period_Desc"), new { @class = "form-control col-xs-2" })
+            </div>
+
+            <div class="table-responsive">
+                <div id="records_table" />
+                @*<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Propiedad</th>
+                                <th>Periodo</th>
+                                <th>Ingresos</th>
+                                <th>Cargos</th>
+                                <th>Total</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.EmployeeList)
+                            {
+                                <tr>
+                                    <td>@item.Property_Desc</td>
+                                    <td>@item.Period_Desc</td>
+                                    <td>@item.Income</td>
+                                    <td>@item.Charge</td>
+                                    <td>@item.Net</td>
+                                    <td align="center">
+                                        <a href="/Exportar/Index/1" class="btn btn-success">Generar PDF</a>
+                                        &nbsp;
+                                        <a href="#" class="btn btn-secondary">Enviar por email</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+
+    <script type="text/javascript">
+
+$(document).ready(function() {
+    $("#MonthPeriod").click(function () {
+
+    var period = $('#MonthPeriod').val();
+
+    $.ajax({
+        url: 'http://localhost:8080/api/monthstatedetail/get?period_id=' + period,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            $('#records_table').empty();
+            var trHTML = '';
+            $.each(response, function (i, item) {
+                trHTML += '<tbody><tr><td>' + item.property_desc +
+                    '</td><td>' + item.period_desc +
+                    '</td><td>' + number_format(item.income, 0, ',', '.') +
+                    '</td><td>' + number_format(item.charge, 0, ',', '.') +
+                    '</td><td>' + number_format(item.net, 0, ',', '.') +
+                    '</td><td align="center"><a href="/Exportar/Index/1" class="btn btn-success">Generar PDF</a>' +
+                    '&nbsp;<a href="#" class="btn btn-secondary">Enviar por email</a></td></tr></tbody>';
+            });
+            trHTML = '<table class="table table-bordered">' +
+                '<thead><tr><th>Propiedad</th><th>Periodo</th><th>Pagos</th><th>Cargos</th><th>Total</th><th>&nbsp;</th></tr></thead>' +
+                trHTML + '</table>';
+            $('#records_table').append(trHTML);
+        },
+        error: function () {
+            console.log("No se ha podido obtener la informacion");
+        }
+
+    });
+    });
+});
+
+    </script>
+
+    }
+

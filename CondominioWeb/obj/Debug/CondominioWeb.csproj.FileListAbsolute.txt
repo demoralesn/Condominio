@@ -275,3 +275,5 @@ C:\Users\dmorales.sahid\source\repos\Condominio\CondominioWeb\obj\Debug\Condomin
 C:\Users\dmorales.sahid\source\repos\Condominio\CondominioWeb\obj\Debug\CondominioWeb.dll
 C:\Users\dmorales.sahid\source\repos\Condominio\CondominioWeb\obj\Debug\CondominioWeb.pdb
 C:\Users\dmorales.sahid\source\repos\Condominio\CondominioWeb\obj\Debug\CondominioWeb.csprojAssemblyReference.cache
+C:\Users\Pupos\source\repos\Condominio\CondominioWeb\bin\System.Net.Http.Formatting.dll
+C:\Users\Pupos\source\repos\Condominio\CondominioWeb\bin\System.Net.Http.Formatting.xml

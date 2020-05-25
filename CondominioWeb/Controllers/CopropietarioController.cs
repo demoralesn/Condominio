@@ -6,17 +6,43 @@ using System.Web.Mvc;
 using CondominioWeb.Models;
 using CondominioWeb.DAL;
 using System.Data;
+using System.Net.Http;
 
 namespace CondominioWeb.Controllers
 {
     public class CopropietarioController : Controller
     {
-        // GET: Copropietario
         public ActionResult Index()
         {
-            var cop = CargarGrilla(0,0);
+            IEnumerable<Owner> owners = null;
 
-            ViewBag.EmployeeList = cop;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8080/api/");
+
+                var responseTask = client.GetAsync("owner");
+
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<Owner>>();
+
+                    readTask.Wait();
+
+                    owners = readTask.Result;
+                }
+                else
+                {
+                    owners = Enumerable.Empty<Owner>();
+
+                    ModelState.AddModelError(string.Empty, "Server error.");
+                }
+            }
+
+            ViewBag.EmployeeList = owners;
 
             return View();
         }
@@ -26,122 +52,119 @@ namespace CondominioWeb.Controllers
             return View();
         }
 
-        public JsonResult DeleteEmployee(int EmployeeId)
-        {
-            bool res = EliminarCop(EmployeeId);
-
-            return Json(res, JsonRequestBehavior.AllowGet);
-        }
-
         [HttpPost]
-        public ActionResult Crear(Copropietario cop)
+        public ActionResult Crear(Owner own)
         {
-            var res = Guardar(cop);
-
-            if (res.Contains("Error")){
-                ViewBag.Tipo = 1;
-            }
-            else
+            using (var client = new HttpClient())
             {
-                ViewBag.Tipo = 0;
-            }
+                client.BaseAddress = new Uri("http://localhost:8080/api/");
 
-            ViewBag.Message = res;
+                var postTask = client.PostAsJsonAsync<Owner>("owner", own);
+                
+                postTask.Wait();
 
-            return View();
-        }
+                var result = postTask.Result;
 
-        [HttpPost]
-        public ActionResult Editar(Copropietario cop)
-        {
-            var res = Actualizar(cop);
-
-            if (res.Contains("Error"))
-            {
-                ViewBag.Tipo = 1;
-            }
-            else
-            {
-                ViewBag.Tipo = 0;
-            }
-
-            ViewBag.Message = res;
-
-            return View();
-        }
-
-        private List<Copropietario> CargarGrilla(int tipo, int id)
-        {
-            var copropietarioList = new List<Copropietario>();
-            using (var dt = BaseDatos.ExecuteDataTable("sp_c_copropietario", tipo, id))
-            {
-                foreach (DataRow row in dt.Rows)
+                if (result.IsSuccessStatusCode)
                 {
-                    var copropietario = new Copropietario()
-                    {
-                        Id = (int)row["id"],
-                        Rut = row["rut"].ToString(),
-                        Dv = row["dv"].ToString(),
-                        Nombre = row["nombre"].ToString(),
-                        Apellido = row["apellido"].ToString(),
-                        Telefono = row["telefono"].ToString(),
-                        _Genero = (Genero)Enum.Parse(typeof(Genero), row["genero"].ToString(), true),
-                        Fec_Nac = row["fec_nac"].ToString(),
-                        _Nacionalidad = (Nacionalidad)Enum.Parse(typeof(Nacionalidad), row["nacionalidad"].ToString(), true),
-                        Email = row["email"].ToString(),
-                    };
-                    copropietarioList.Add(copropietario);
+                    ViewBag.Tipo = 0;
+                    ViewBag.Message = "Registro creado";
+                }
+                else
+                {
+                    ViewBag.Tipo = 1;
+                    ViewBag.Message = "Error al crear";
+                    ModelState.AddModelError(string.Empty, "Server error.");
                 }
             }
-            return copropietarioList;
-        }
 
-        private bool EliminarCop(int CopID)
-        {
-            try
-            {
-                BaseDatos.ExecuteSql("sp_d_registro_copropietario", CopID);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private String Guardar(Copropietario cop)
-        {
-            try
-            {
-                BaseDatos.ExecuteSql("sp_i_registro_copropietario", cop.Rut, cop.Dv,cop.Nombre, cop.Apellido, cop.Telefono, cop._Genero, cop.Fec_Nac, cop._Nacionalidad, cop.Email);
-                return "Registro guardado";
-            }
-            catch (Exception ex)
-            {
-                return "Error: " + ex.Message;
-            }
-        }
-
-        private String Actualizar(Copropietario cop)
-        {
-            try
-            {
-                BaseDatos.ExecuteSql("sp_u_registro_copropietario", cop.Id, cop.Rut, cop.Dv, cop.Nombre, cop.Apellido, cop.Telefono, cop._Genero, cop.Fec_Nac, cop._Nacionalidad, cop.Email);
-                return "Registro actualizado";
-            }
-            catch (Exception ex)
-            {
-                return "Error: " + ex.Message;
-            }
+            return View();
         }
 
         public ActionResult Editar(int id)
         {
-            var cop = CargarGrilla(1,id);
+            Owner own = null;
 
-            var copro = cop.Where(c => c.Id == id).FirstOrDefault();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8080/api/");
 
-            return View(copro);
+                var responseTask = client.GetAsync("owner/" + id.ToString());
+                
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<Owner>();
+
+                    readTask.Wait();
+
+                    own = readTask.Result;
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Server error.");
+                }
+            }
+
+            return View(own);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Owner own)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8080/api/");
+
+                var putTask = client.PutAsJsonAsync<Owner>("owner", own);
+                
+                putTask.Wait();
+
+                var result = putTask.Result;
+                
+                if (result.IsSuccessStatusCode)
+                {
+                    ViewBag.Tipo = 0;
+                    ViewBag.Message = "Registro actualizado";
+                }
+                else
+                {
+                    ViewBag.Tipo = 1;
+                    ViewBag.Message = "Error al actualizar";
+                    ModelState.AddModelError(string.Empty, "Server error.");
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8080/api/");
+
+                var deleteTask = client.DeleteAsync("owner/" + id.ToString());
+                
+                deleteTask.Wait();
+
+                var result = deleteTask.Result;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    ViewBag.Tipo = 0;
+                    ViewBag.Message = "Registro eliminado";
+                }
+                else
+                {
+                    ViewBag.Tipo = 1;
+                    ViewBag.Message = "Error al eliminar";
+                    ModelState.AddModelError(string.Empty, "Server error.");
+                }
+            }
+            return RedirectToAction("Index");
         }
     }
 }
